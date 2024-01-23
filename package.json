@@ -16,6 +16,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.5.0",
+    "@commitlint/config-conventional": "^18.5.0",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
@@ -37,8 +39,8 @@
     "pre-commit": "lint-staged",
     "pre-push": "npm run lint && npm run format"
   },
-  "lint-staged":{
-    "src/**/*.{ts,tsx,js,jsx}":[
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx}": [
       "npm run lint",
       "npm run format"
     ]
