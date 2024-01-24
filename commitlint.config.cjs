@@ -1,5 +1,5 @@
 module.exports = {
-    extends: [],
+    extends: ['@commitlint/config-conventional'],
     rules: {
         'type-enum': [2, 'always', ['feat', 'fix', 'chore', 'docs', 'style', 'test']],
         'type-case': [2, 'always', 'lowerCase'],
@@ -8,7 +8,9 @@ module.exports = {
         'subject-empty': [2, 'never'],
         'scope-case': [2, 'always', 'kebab-case'],
     },
-    plugins: [
-
-    ]
+    parserPreset: {
+        parserOpts: {
+            issuePrefixes: ['[EXAMPLE]'],
+        },
+    },
 }
