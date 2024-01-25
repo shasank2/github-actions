@@ -1,0 +1,33 @@
+name: Continious Integration and Continous Deployment
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - users: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version : '20.10.0'
+
+      - name: Install Packages
+        run: npm install
+
+      - name: Run Linters 
+        run: npm run lint
+
+      - name: Run Formatters
+        run: npm run format
+
+      - name: Check commit messages
+        uses: wagoid/commitlint-github-actions@v3
+        with:
+          configFile: commitlint.config.cjs
