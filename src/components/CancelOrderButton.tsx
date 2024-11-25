@@ -1,4 +1,4 @@
-import { Button, Dialog, Flex } from "@radix-ui/themes";
+import { Button, Dialog, Flex } from '@radix-ui/themes'
 
 const CancelOrderButton = () => {
   return (
@@ -9,12 +9,12 @@ const CancelOrderButton = () => {
 
       <Dialog.Content style={{ maxWidth: 450 }}>
         <Dialog.Title>Confirm</Dialog.Title>
-        <Dialog.Description size="2" mb="4">
+        <Dialog.Description size='2' mb='4'>
           Are you sure you want to cancel this order?
         </Dialog.Description>
-        <Flex gap="3" mt="4" justify="end">
+        <Flex gap='3' mt='4' justify='end'>
           <Dialog.Close>
-            <Button variant="soft" color="gray">
+            <Button variant='soft' color='gray'>
               No
             </Button>
           </Dialog.Close>
@@ -24,7 +24,7 @@ const CancelOrderButton = () => {
         </Flex>
       </Dialog.Content>
     </Dialog.Root>
-  );
-};
+  )
+}
 
-export default CancelOrderButton;
+export default CancelOrderButton
