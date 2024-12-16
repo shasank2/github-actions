@@ -16,28 +16,38 @@ function ProductListPage() {
     if (products!.length === 0) return <p>No product was found!</p>
 
     return (
-      <Table.Root>
-        <Table.Header>
-          <Table.Row>
-            <Table.ColumnHeaderCell>Name</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell>Price</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {products!.map(product => (
-            <Table.Row key={product.id}>
-              <Table.Cell>
-                <Link to={product.id.toString()}>{product.name}</Link>
-              </Table.Cell>
-              <Table.Cell>${product.price}</Table.Cell>
-              <Table.Cell>
-                <QuantitySelector product={product} />
-              </Table.Cell>
-            </Table.Row>
-          ))}
-        </Table.Body>
-      </Table.Root>
+      <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+        <div className="max-w-full overflow-x-auto">
+          <Table.Root className='w-full table-auto'>
+            <Table.Header>
+              <Table.Row className='bg-gray-2 text-left dark:bg-meta-4'>
+                <Table.ColumnHeaderCell className='min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11'>Name</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell className='min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11' >Price</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell className='min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11'></Table.ColumnHeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {products!.map(product => (
+                <Table.Row key={product.id}>
+                  <Table.Cell className='border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11'>
+                    <h5 className="font-medium text-black dark:text-white">
+                      <Link to={product.id.toString()}>{product.name}</Link>
+                    </h5>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <p className="text-sm text-black dark:text-white">
+                      ${product.price}
+                    </p>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <QuantitySelector product={product} />
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table.Root>
+        </div>
+      </div>
     )
   }
 
